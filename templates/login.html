@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房租预测</title>
+    <meta name="keywords" content="房产评估,房产估价,房价走势,房产大数据">
+<meta name="description" content="房价网是国内最早成立的第三方线上房产估价平台，建立了中国领先的房产大数据库（CPDB），提供全国366个城市基于地址的房产大数据服务。">
+ window.onload=function(){
+//    选择员工点击事件
+        var $staffSelectt_Ul_li = document.querySelectorAll(".rank_top_1_ul li");
+
+        $staffSelectt_Ul_li[0].onclick = function(){
+            //获取小箭头对象
+            var $imgLabel = document.querySelector(".rank_top_1_ul li:first-child img");
+            //获取下标为 2 的li标签的display 状态，如果是 block ，说明 li 标签已经显示了
+            //所以点击事件， 执行的是 关闭 li 标签列表的功能。  反之亦然
+            var $tempFlag = $staffSelectt_Ul_li[1].style.display;
+            if($tempFlag ==="block" ){
+                //  小箭头旋转,回位
+                $imgLabel.style.transform = 'rotate(0deg)';
+                for(var $i=1;$i<$staffSelectt_Ul_li.length;$i++){
+                    $staffSelectt_Ul_li[$i].style.display = "none";
+                }
+            }else{
+                //  小箭头旋转,90du
+                $imgLabel.style.transform = 'rotate(-90deg)';
+
+                for(var $i=1;$i<$staffSelectt_Ul_li.length;$i++){
+                    $staffSelectt_Ul_li[$i].style.display = "block";
+                }
+            }
+            //给每个li对象都添加一个点击事件
+
+            for(var $i=1;$i<$staffSelectt_Ul_li.length;$i++){
+                $staffSelectt_Ul_li[$i].onclick=function(){
+                    //将点击li 的文字赋 给第一个li
+                    $staffSelectt_Ul_li[0].firstChild.innerText =  this.innerText;
+                    // 关闭所有的 li（除了第一个）
+                    for(var $i=1;$i<$staffSelectt_Ul_li.length;$i++){
+                        $staffSelectt_Ul_li[$i].style.display = "none";
+                    }
+                    //  小箭头旋转,归位
+                    $imgLabel.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+    };
+</head>
+<body>
+<div>
+        <div class="logo">
+            <a href="..."></a>
+        </div>
+
+         <ul class="nav">
+        	<li class="current"><a  href="...">首页</a></li>
+        	<li class="" ><a href="...">精品公寓</a></li>
+            <li class="subnav01 ">
+            	<a href="...">房产预测</a>
+            	<div class="dn">
+					<ul>
+						<li><a href="...">房租评估</a></li>
+						<li><a href="...">房租走势</a></li>
+						<li><a href="...">房租排行</a></li>
+					</ul>
+            	</div>
+            </li>
+
+        </ul>
+
+        <ul class="vip" id="vip1">
+            <li><a href="...">登录</a></li>
+            <li><a style="margin:0 14px;font-size:14px;">|</a></li>
+            <li><a href="...">注册</a></li>
+        </ul>
+        <ul class="vip dn" id="vip2">
+            <li><a href="..." id="l_uname"></a></li>
+            <li><a style="margin:0 14px;font-size:14px;">|</a></li>
+            <li><a href="javascript:void(0)" onclick="logout()">退出登录</a></li>
+        </ul>
+
+        <ul class="tool dn">
+        	<li><a class="tool01"><img src="..."></a></li>
+        	<li><a class="tool02"><img src="..."></a></li>
+        </ul>
+
+    </div>
+</body>
+</html>
